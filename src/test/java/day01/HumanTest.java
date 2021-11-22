@@ -21,7 +21,7 @@ class HumanTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> new Human("  ", 1990));
 
-        assertEquals("The name is invalid!", exception.getMessage());
+        assertEquals("The name is blank!", exception.getMessage());
     }
 
     @Test
@@ -46,6 +46,8 @@ class HumanTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> new Human(null, 1990));
 
-        assertEquals("The name is invalid!", exception.getMessage());
+        assertEquals("The name is blank!", exception.getMessage());
     }
+
+
 }
