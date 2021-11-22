@@ -9,7 +9,7 @@ public class Human {
     private int yearOfBirth;
 
     public Human(String name, int yearOfBirth) {
-        if(checkValidData(name, yearOfBirth)) {
+        if (checkValidData(name, yearOfBirth)) {
             this.name = name;
             this.yearOfBirth = yearOfBirth;
         }
@@ -38,7 +38,7 @@ public class Human {
     }
 
     private boolean isAgeValid(int yearOfBirth) {
-        if(LocalDate.now().getYear() - yearOfBirth >= 120) {
+        if (LocalDate.now().getYear() - yearOfBirth >= 120) {
             throw new IllegalArgumentException("The age is invalid!");
         }
         return true;
