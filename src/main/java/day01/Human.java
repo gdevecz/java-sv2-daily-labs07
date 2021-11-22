@@ -1,28 +1,31 @@
 package day01;
 
+import java.time.LocalDate;
+import java.time.Year;
+
 public class Human {
 
     private String name;
 
-    private int age;
+    private int yearOfBirth;
 
-    public Human(String name, int age) {
+    public Human(String name, int yearOfBirth) {
         if (!isNameValid(name)) {
             throw new IllegalArgumentException("The name is invalid!");
         }
-        if (!isAgeValid(age)) {
+        if (!isAgeValid(yearOfBirth)) {
             throw new IllegalArgumentException("The age is invalid!");
         }
         this.name = name;
-        this.age = age;
+        this.yearOfBirth = yearOfBirth;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
-        return age;
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
     private boolean isNameValid(String name) {
@@ -36,6 +39,6 @@ public class Human {
     }
 
     private boolean isAgeValid(int age) {
-        return age <= 120;
+        return LocalDate.now().getYear() - yearOfBirth >= 120;
     }
 }

@@ -8,10 +8,10 @@ class HumanTest {
 
     @Test
     void testCreate() {
-        Human human = new Human("John Doe", 33);
+        Human human = new Human("John Doe", 1990);
 
         assertEquals("John Doe", human.getName());
-        assertEquals(33, human.getAge());
+        assertEquals(1990, human.getYearOfBirth());
     }
 
 
@@ -19,7 +19,7 @@ class HumanTest {
     void testCreateBlankName() {
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new Human("  ", 33));
+                () -> new Human("  ", 1990));
 
         assertEquals("The name is invalid!", exception.getMessage());
     }
@@ -28,7 +28,7 @@ class HumanTest {
     void testCreateWrongName() {
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new Human(" John ", 33));
+                () -> new Human(" John ", 1990));
 
         assertEquals("The name is invalid!", exception.getMessage());
     }
@@ -36,7 +36,7 @@ class HumanTest {
     @Test
     void testCreateWrongAge() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> new Human("John  Doe", 133));
+                () -> new Human("John  Doe", 1810));
 
         assertEquals("The age is invalid!", exception.getMessage());
     }
