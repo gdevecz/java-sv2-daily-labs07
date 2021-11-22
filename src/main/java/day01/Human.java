@@ -29,15 +29,18 @@ public class Human {
 
     private boolean isNameValid(String name) {
         if (name == null || name.isBlank()) {
-            return false;
+            throw new IllegalArgumentException("The name is blank!");
         }
-        if (name.substring(1, name.length() - 1).contains(" ")) {
-            return true;
+        if (!(name.substring(1, name.length() - 1).contains(" "))) {
+            throw new IllegalArgumentException("The name is invalid!");
         }
-        return false;
+        return true;
     }
 
     private boolean isAgeValid(int yearOfBirth) {
-        return LocalDate.now().getYear() - yearOfBirth >= 120;
+        if(LocalDate.now().getYear() - yearOfBirth >= 120) {
+            throw new IllegalArgumentException("The age is invalid!");
+        }
+        return true;
     }
 }
