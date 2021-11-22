@@ -29,7 +29,7 @@ public class Human {
     }
 
     private boolean isNameValid(String name) {
-        if(name.isBlank()) {
+        if(name == null || name.isBlank()) {
             return false;
         }
         if (name.substring(1, name.length() - 1).contains(" ")) {

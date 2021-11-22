@@ -40,4 +40,12 @@ class HumanTest {
 
         assertEquals("The age is invalid!", exception.getMessage());
     }
+
+    @Test
+    void testCreateNullName() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> new Human(null, 1990));
+
+        assertEquals("The name is invalid!", exception.getMessage());
+    }
 }
