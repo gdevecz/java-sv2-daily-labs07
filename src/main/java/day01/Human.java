@@ -1,7 +1,6 @@
 package day01;
 
 import java.time.LocalDate;
-import java.time.Year;
 
 public class Human {
 
