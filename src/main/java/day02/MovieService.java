@@ -14,7 +14,7 @@ public class MovieService {
         try {
             loadMovies(path);
         } catch (IOException ioe) {
-            throw new IllegalArgumentException("Can not read file!");
+            throw new IllegalArgumentException("Can not read file!", ioe);
         }
     }
 
