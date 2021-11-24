@@ -50,5 +50,6 @@ class MovieServiceTest {
         assertEquals(expectedNoSuchFileException.getMessage(), exception.getCause().getMessage());
         assertEquals(expectedIOEMessage, exception.getCause().getMessage());
         assertEquals(expectedNSFEMessage, exception.getCause().getMessage());
+        assertEquals(path.toString(),exception.getCause().getMessage());
     }
 }
