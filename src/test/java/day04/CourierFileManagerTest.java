@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CourierFileManagerTest {
 
-    CourierFileManager cm = new CourierFileManager();
+    CourierFileManager cfm = new CourierFileManager();
     @Test
     void TestCrateCourierByFile() {
         Path path = Paths.get("src/main/resources/day04/rides.txt");
-        Courier courier = cm.crateCourierByFile(path);
+        Courier courier = cfm.crateCourierByFile(path);
         Ride expectedRide = new Ride(4,1,19);
 
         assertEquals(6, courier.getRides().size());
@@ -23,11 +23,11 @@ class CourierFileManagerTest {
 
     @Test
     void TestCreateCourierByFileFailed() {
-        Path path = Path.of("wrong.txt");
+        Path path = Path.of("src/main/resources/day04/wrong.txt");
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                ()-> cm.crateCourierByFile(path));
+                ()-> cfm.crateCourierByFile(path));
 
-        assertEquals("Can not read file.", exception.getMessage());
+        assertEquals("Can not read file: " + path, exception.getMessage());
         assertEquals(NoSuchFileException.class, exception.getCause().getClass());
     }
 }
