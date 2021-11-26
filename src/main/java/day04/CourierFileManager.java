@@ -13,7 +13,7 @@ public class CourierFileManager {
         try {
             rowsFromFile = Files.readAllLines(path);
         } catch (IOException ioe) {
-            throw new IllegalArgumentException("Can not read fle.", ioe);
+            throw new IllegalArgumentException("Can not read file.", ioe);
         }
         return loadCourierFromFile(rowsFromFile);
     }

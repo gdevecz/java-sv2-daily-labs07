@@ -14,11 +14,15 @@ public class Ride {
         this.kms = kms;
     }
 
-    public boolean isBefore(Ride antoherRide) {
-        if (day > antoherRide.getDay()) {
+    public boolean isValidNext(Ride previousRide) {
+        if (day < previousRide.getDay()) {
             return false;
         }
-        if (day == antoherRide.getDay() && numberOfRide > antoherRide.getNumberOfRide()) {
+        if (day == previousRide.getDay()
+                && numberOfRide != previousRide.getNumberOfRide() + 1) {
+            return false;
+        }
+        if (day > previousRide.getDay() && numberOfRide != 1) {
             return false;
         }
         return true;
