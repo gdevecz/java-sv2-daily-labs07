@@ -15,10 +15,10 @@ public class CourierFileManager {
         } catch (IOException ioe) {
             throw new IllegalArgumentException("Can not read file.", ioe);
         }
-        return loadCourierFromFile(rowsFromFile);
+        return getCourierFromRows(rowsFromFile);
     }
 
-    private Courier loadCourierFromFile(List<String> rowsFromFile) {
+    private Courier getCourierFromRows(List<String> rowsFromFile) {
         Courier courier = new Courier();
         for (String row : rowsFromFile) {
             String[] data = row.split(" ");
